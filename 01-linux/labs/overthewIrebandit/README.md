@@ -23,9 +23,7 @@ cat readme
 ```
 
 ### Result
-<p align="center">
-  <img src="images/bandit-L0-1-cat-ls.png.png" width="700"/>
-</p>
+<img src="images/bandit-L0-1-cat-ls.png.png" width="700"/>
 
 ---
 
@@ -44,9 +42,7 @@ cat ./-
 ```
 
 ### Result
-<p align="center">
   <img src="images/bandit-L1-2-special-chars.png" width="700"/>
-</p>
 
 ---
----
+
