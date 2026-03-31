@@ -2,7 +2,7 @@
 
 Linux wargame focused on learning linux and command line through security challenges.
 
-![Levels](https://img.shields.io/badge/levels-2%20%2F%2034-brightgreen)
+![Levels](https://img.shields.io/badge/Levels-4%20%2F%2034-brightgreen)
 ![SSH](https://img.shields.io/badge/-SSH-blue)
 ![Linux](https://img.shields.io/badge/-Linux-blue)
 
