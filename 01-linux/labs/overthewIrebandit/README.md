@@ -1,0 +1,52 @@
+# OverTheWire: Bandit
+
+Linux wargame focused on learning the command line through security challenges.
+
+![Levels](https://img.shields.io/badge/levels-5%20%2F%2034-brightgreen)
+![SSH](https://img.shields.io/badge/-SSH-blue)
+![Linux](https://img.shields.io/badge/-Linux-blue)
+
+---
+
+## Level 0 → 1
+
+### Objective
+Connect to the Bandit server via SSH on port 2220 and read the password stored in a file called `readme` in the home directory.
+
+### Key concept
+Basic Linux navigation and viewing files.
+
+### Commands used
+```bash
+ls
+cat readme
+```
+
+### Result
+<p align="center">
+  <img src="images/bandit-L0-1-cat-ls.png.png" width="700"/>
+</p>
+
+---
+
+## Level 1 → 2
+
+### Objective
+Read the password from a file named `-` in the home directory.
+
+### Key concept
+A filename starting with `'` will be treated as a command option. Using `./` tells the system we are looking for a file.
+
+### Commands used
+```bash
+ls
+cat ./-
+```
+
+### Result
+<p align="center">
+  <img src="images/bandit-L1-2-special-chars.png" width="700"/>
+</p>
+
+---
+---
