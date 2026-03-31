@@ -13,4 +13,4 @@ cat readme
 ```
 
 ## Result
-<img src="images/bandit-L0-1-cat-ls.png.png" width="700"/>
+<img src="../images/bandit-L0-1-cat-ls.png.png" width="700"/>
