@@ -101,7 +101,7 @@ cat ./-file07
 ```
 
 ### Result
-  <img src="images/bandit-L3-4-hidden-files.png" width="700"/>
+  <img src="images/bandit-L4-5-file-command.png" width="700"/>
 
 ---
 
