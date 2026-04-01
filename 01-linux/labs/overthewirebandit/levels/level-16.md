@@ -4,7 +4,7 @@
 Find the correct SSL service port in a range and use it to obtain an SSH private key for the next level.
 
 ## Key concept
- Utilising the `nmap` command to locate specific ports which communicate via SSL/TLS. Use `openssl s_client` command to use communicate via SSL/TLS and retrieve credentials. 
+ Utilising the `nmap` command to locate specific ports which communicate via SSL/TLS. Using the `openssl s_client` command to use communicate via SSL/TLS and retrieve credentials. 
 
 ## Commands used
 ```bash
