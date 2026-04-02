@@ -15,16 +15,10 @@ Linux is the foundation of DevOps. Most servers, containers, and cloud infrastru
 
 ```
 01-linux/
-├── notes/       # Your notes from lessons
+├── notes/       # Notes from lessons
 ├── labs/        # Completed lab exercises
 └── projects/    # Hands-on projects
 ```
-
-## Suggested Projects
-
-- [ ] Create a system info script that displays OS, memory, disk usage
-- [ ] Set up a new user with specific permissions
-- [ ] Write a log rotation script
 
 ## Resources
 
