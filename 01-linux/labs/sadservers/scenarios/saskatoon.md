@@ -17,4 +17,4 @@ sha1sum /home/admin/highestip.txt
 ```
 
 ## Result
-<img src="../images/saskatoon.png" width="700"/>
+<img src="../images/Saskatoon.png" width="700"/>
