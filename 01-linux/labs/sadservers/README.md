@@ -2,7 +2,7 @@
  
 Linux troubleshooting scenarios on real servers - diagnose and fix broken systems in a capture-the-flag format.
  
-![Scenarios](https://img.shields.io/badge/Scenarios-2%20%2F%205-brightgreen)
+![Scenarios](https://img.shields.io/badge/Scenarios-2%20%2F%20-brightgreen)
 ![Linux](https://img.shields.io/badge/-Linux-blue)
 ![Troubleshooting](https://img.shields.io/badge/-Troubleshooting-red)
  
@@ -30,5 +30,5 @@ Linux troubleshooting scenarios on real servers - diagnose and fix broken system
 ---
  
 ## Security note
- 
+
 Passwords, private keys, and sensitive data are **never committed** to GitHub.
