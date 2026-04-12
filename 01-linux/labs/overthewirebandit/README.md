@@ -5,6 +5,8 @@ Linux wargame focused on learning linux and command line through security challe
 ![Levels](https://img.shields.io/badge/Levels-20%20%2F%2020-brightgreen)
 ![SSH](https://img.shields.io/badge/-SSH-blue)
 ![Linux](https://img.shields.io/badge/-Linux-blue)
+![Focus](https://img.shields.io/badge/Focus-Linux%20Fundamentals-purple?logo=linux)
+![Practice](https://img.shields.io/badge/Practice-Hands--on-orange)
 
 ---
 

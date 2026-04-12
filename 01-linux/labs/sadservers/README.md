@@ -5,6 +5,7 @@ Linux troubleshooting scenarios on real servers - diagnose and fix broken system
 ![Scenarios](https://img.shields.io/badge/Scenarios-2%20%2F%20-brightgreen)
 ![Linux](https://img.shields.io/badge/-Linux-blue)
 ![Troubleshooting](https://img.shields.io/badge/-Troubleshooting-red)
+ ![Practice](https://img.shields.io/badge/Practice-Hands--on-orange)
  
 ---
  
