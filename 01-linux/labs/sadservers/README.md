@@ -3,9 +3,9 @@
 Linux troubleshooting scenarios on real servers - diagnose and fix broken systems in a capture-the-flag format.
  
 ![Scenarios](https://img.shields.io/badge/Scenarios-3%20%2F%203-brightgreen)
-![Linux](https://img.shields.io/badge/-Linux-blue)
-![Troubleshooting](https://img.shields.io/badge/-Troubleshooting-red)
- ![Practice](https://img.shields.io/badge/Practice-Hands--on-orange)
+![Linux](https://img.shields.io/badge/OS-Linux-blue)
+![Troubleshooting](https://img.shields.io/badge/Focus-Troubleshooting-red)
+![Practice](https://img.shields.io/badge/Practice-Hands--on-orange)
 
 ---
  
