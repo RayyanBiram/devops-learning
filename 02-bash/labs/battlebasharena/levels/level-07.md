@@ -14,7 +14,7 @@ if [[ $# -eq 0 ]]; then
         echo "Enter a directory"
         exit 1
 elif [[ ! -d $Directory ]]; then
-        echo "Directory does not exit"
+        echo "Directory does not exist"
         echo "Enter a valid directory"
         exit 1
 elif  ! ls $Directory/*.txt 1>/dev/null 2>/dev/null; then
