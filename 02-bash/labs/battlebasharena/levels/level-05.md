@@ -19,6 +19,8 @@ touch battlefield/{knight,sorcerer,rogue}.txt
 if [[ -f battlefield/knight.txt ]]; then
         mkdir archive
         cp battlefield/knight.txt archive/
+else
+        echo "knight.txt not found."
 fi
 
 ls battlefield
