@@ -7,7 +7,7 @@ Write a script that monitors a directory for any changes (file creation, modific
 ```bash
 #!/bin/bash
 
-# Command to be ran in tmux/screen/zellij when commands are needed to be ran in terminal
+# Script to be ran in tmux/screen/zellij when manual changes are needed.
 
 directory="$1"
 
