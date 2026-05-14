@@ -28,4 +28,4 @@ fi
 ```
 
 ## Result
-<img src="../images/level 9 - script to monitor directory changes" width="700"/>
+<img src="../images/level 9 - script to monitor directory changes.png" width="700"/>
