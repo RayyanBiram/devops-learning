@@ -49,4 +49,4 @@ arithmetics
 ```
 
 ## Result
-<img src="../images/.png" width="700"/>
+<img src="../images/basic arithmetic calculator.png" width="700"/>
