@@ -8,7 +8,7 @@ An IP address is a numerical label that identifies a device on a network.
  
 **IPv4** - the original format, 32-bit, written as four dotted decimals (e.g. `13.42.27.129`). About 4.3 billion total addresses, which the world has now exhausted.
  
-**IPv6** — 128-bit, written as eight groups of four hex digits separated by colons. Effectively infinite address space. Adoption is partial - most internet traffic still rides on IPv4.
+**IPv6** - 128-bit, written as eight groups of four hex digits separated by colons. Effectively infinite address space. Adoption is partial - most internet traffic still rides on IPv4.
  
 ### Public vs private
  
