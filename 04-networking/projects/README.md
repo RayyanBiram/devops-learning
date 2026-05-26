@@ -11,6 +11,7 @@ An end-to-end web hosting setup serving an nginx landing page over a custom subd
 - nginx web server
 - Cloudflare DNS managing `biram.uk`
 - Custom subdomain: `nginx.biram.uk`
+
 **Architecture:**
  
 ```
