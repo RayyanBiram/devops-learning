@@ -315,4 +315,28 @@ After verifying the project end-to-end:
 - [`Dockerfile`](Dockerfile) — image definition for the Flask service
 - [`docker-compose.yml`](docker-compose.yml) — multi-container orchestration (web, redisdb, nginx)
 - [`nginx.conf`](nginx.conf) — reverse proxy / load balancer config
+- [`personalised-flask-redis-nginx/`](personalised-flask-redis-nginx/) - styled HTML version of the app (see [Personalising the App](#personalising-the-app))
 - [`screenshots/`](screenshots/) — step-by-step screenshots referenced above
+
+## Personalising the App
+
+With the core challenge complete, I gave the Flask app a proper frontend, turning the two plain text responses into styled HTML pages with custom copy and a slick look. To keep the original build intact, the personalised version lives in its own subfolder (`personalised-flask-redis-nginx/`) rather than replacing the original `app.py`.
+
+**What changed:**
+- Both routes now return styled HTML pages instead of plain-text strings.
+- Custom copy - a playful "always watching" welcome message, and a counter page that reveals the visit total.
+- A layered green gradient background with a s centered white card.
+- An eye motif tying into the theme: an open eye on the welcome page ("always watching"), and a crossed-out eye on the counter page ("not watching you").
+- A button linking the welcome page to `/count`, and a "Back to Home" button to return.
+
+Crucially, **no infrastructure changed**. The same `Dockerfile`, `docker-compose.yml`, `nginx.conf`, and Redis setup all still apply. The HTML is kept inline in `app.py`, so there are no extra template files and nothing in the container build had to change.
+
+### Welcome page (`/`)
+
+![Personalised welcome page](screenshots/personalised-welcome.png)
+
+### Visit counter (`/count`)
+
+![Personalised visit counter](screenshots/personalised-count.png)
+
+The styled application code is in [`personalised-flask-redis-nginx/app.py`](personalised-flask-redis-nginx/app.py).
