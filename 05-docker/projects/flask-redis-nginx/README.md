@@ -1,7 +1,16 @@
 # Docker Containers Project: Flask + Redis + nginx
  
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Docker Compose](https://img.shields.io/badge/Docker%20Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![NGINX](https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white)
+
+## Overview
+
 A core containers module project that brings together multi-container orchestration, service networking, persistent storage, environment-based config, and load balancing with Docker Compose.
- 
+
 ## What I Built
 
 A multi-container web application: a Flask app that tracks page visits in Redis, fronted by an nginx load balancer, all orchestrated with Docker Compose. The Flask service can be scaled to multiple instances, with nginx spreading traffic across them.
