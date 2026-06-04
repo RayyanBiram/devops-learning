@@ -37,7 +37,7 @@ nginx
 HTML landing page
 ```
  
-## Screenshots — quick reference
+## Screenshots - quick reference
  
 Jump straight to any step. Full walk-through with images is in the next section.
  
@@ -181,7 +181,7 @@ ssh -i /home/rayyanbiram/coderco/networking/"biram-key.pem" ec2-user@ec2-13-42-2
 ### nginx & systemd
 - `systemctl enable` makes a service start on boot; `systemctl start` runs it now; both are needed.
 - nginx's default web root on Amazon Linux 2023 is `/usr/share/nginx/html/`.
-- Editing `index.html` is reflected instantly on the next page refresh — no nginx restart needed for content changes.
+- Editing `index.html` is reflected instantly on the next page refresh - no nginx restart needed for content changes.
 ## Challenges & How I Solved Them
  
 ### 1. Cloudflare proxy hiding the EC2 IP
@@ -209,5 +209,5 @@ After the project was verified end-to-end:
  
 ## Files
  
-- [`README.md`](README.md) — this file
-- [`screenshots/`](screenshots/) — step-by-step screenshots referenced above
+- [`README.md`](README.md) - this file
+- [`screenshots/`](screenshots/) - step-by-step screenshots referenced above
