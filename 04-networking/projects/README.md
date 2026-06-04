@@ -1,5 +1,12 @@
 # AWS Networking Project: Domain + EC2 + nginx
- 
+
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)
+![Amazon EC2](https://img.shields.io/badge/Amazon%20EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white)
+![Amazon Linux 2023](https://img.shields.io/badge/Amazon%20Linux%202023-232F3E?style=for-the-badge&logo=linux&logoColor=white)
+![NGINX](https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white)
+![Cloudflare DNS](https://img.shields.io/badge/Cloudflare%20DNS-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+![SSH](https://img.shields.io/badge/SSH-000000?style=for-the-badge&logo=openssh&logoColor=white)
+
 A core networking module project that brings together IP addressing, DNS, ports, security groups, and basic web hosting on AWS.
  
 ## What I Built
