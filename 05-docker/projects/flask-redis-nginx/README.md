@@ -7,8 +7,6 @@
 ![Docker Compose](https://img.shields.io/badge/Docker%20Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![NGINX](https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white)
 
-## Overview
-
 A core containers module project that brings together multi-container orchestration, service networking, persistent storage, environment-based config, and load balancing with Docker Compose.
 
 ## What I Built
