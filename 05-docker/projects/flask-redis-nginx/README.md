@@ -38,7 +38,7 @@ nginx                    (load balancer; listens on :80, published as :5000)
                redis-data volume   (count survives restarts)
 ```
  
-## Screenshots — quick reference
+## Screenshots - quick reference
  
 Jump straight to any step. Full walk-through with images is in the next section.
  
@@ -245,7 +245,7 @@ docker compose logs web
 # Stop and remove containers (the named volume is kept)
 docker compose down
  
-# Bring it back up — the visit count resumes where it left off
+# Bring it back up - the visit count resumes where it left off
 docker compose up
  
  
@@ -317,13 +317,13 @@ After verifying the project end-to-end:
 - `docker image rm flask-redis-web` - removes the built image if no longer needed
 ## Files
  
-- [`README.md`](README.md) — this file
-- [`app.py`](app.py) — the Flask application (two routes, Redis-backed counter)
-- [`Dockerfile`](Dockerfile) — image definition for the Flask service
-- [`docker-compose.yml`](docker-compose.yml) — multi-container orchestration (web, redisdb, nginx)
-- [`nginx.conf`](nginx.conf) — reverse proxy / load balancer config
+- [`README.md`](README.md) - this file
+- [`app.py`](app.py) - the Flask application (two routes, Redis-backed counter)
+- [`Dockerfile`](Dockerfile) - image definition for the Flask service
+- [`docker-compose.yml`](docker-compose.yml) - multi-container orchestration (web, redisdb, nginx)
+- [`nginx.conf`](nginx.conf) - reverse proxy / load balancer config
 - [`personalised-flask-redis-nginx/`](personalised-flask-redis-nginx/) - styled HTML version of the app (see [Personalising the App](#personalising-the-app))
-- [`screenshots/`](screenshots/) — step-by-step screenshots referenced above
+- [`screenshots/`](screenshots/) - step-by-step screenshots referenced above
 
 ## Personalising the App
 
