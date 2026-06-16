@@ -179,7 +179,7 @@ From inside the bastion, SSH to the private instance over its **private** IP (`1
 
 ![Bastion to private SSH](screenshots/ssh-bastion-host.png)
 
-> The private key was copied onto the bastion for the hop. A cleaner approach that keeps the key off the bastion entirely is **ProxyJump** in a single command from my laptop - `ssh -i key.pem -J ec2-user@13.40.45.94 ec2-user@10.0.1.239` - or, since the SSM role is attached, **Session Manager** with no SSH at all. Noted as a hardening improvement.
+> The private key was copied onto the bastion for the hop.
 
 ### 12. Prove the private subnet's outbound path
 
