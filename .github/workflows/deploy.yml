@@ -3,6 +3,8 @@ name: Deploy to S3
 on:
   push:
     branches: [ main ]                # When: run every time you push to main
+    paths:
+      - '06-aws/projects/assignment-3-s3-cloudfront-cdn-route53/**'
 
 permissions:
   id-token: write                     # Lets the job prove it's identity to AWS via OIDC
@@ -21,7 +23,7 @@ jobs:
           aws-region: eu-west-2
         
       - name: Upload site to S3
-        run: aws s3 sync ./sites s3://a3-biram-s3 --delete   # Copy files to the bucket
+        run: aws s3 sync ./06-aws/projects/assignment-3-s3-cloudfront-cdn-route53/sites s3://a3-biram-s3 --delete   # Copy files to the bucket
 
       - name: Refresh CloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CF_DISTRIBUTION_ID }} --paths "/*"  # Clear the cache
