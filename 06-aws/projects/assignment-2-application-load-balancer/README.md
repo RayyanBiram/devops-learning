@@ -166,6 +166,8 @@ A `dig` confirms `aws.biram.uk` now resolves to the ALB's two node IPs:
 
 ![dig resolving to the ALB](screenshots/dig-dns.png)
 
+![Traffic alternating via the ALB](screenshots/dns-http-redirect.gif)
+
 ### 8. Bonus - HTTPS listener with ACM
 
 HTTP is unencrypted, so I added TLS. **ACM** issues free public certificates and auto-renews them; the **ALB** terminates TLS at the edge, so the instances stay on plain HTTP internally.
