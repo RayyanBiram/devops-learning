@@ -76,7 +76,7 @@ Jump straight to any step. The full walk-through with images is in the next sect
 | 13 | ACM certificate issued (us-east-1) | [View](screenshots/acm-cert-issued.png) |
 | 14 | API Gateway custom domain | [View](screenshots/custom-domains-api-gateway.png) |
 | 15 | Route 53 records for the subdomain | [View](screenshots/cname-a-records-route53.png) |
-| 16 | Live on the custom HTTPS domain | [View](screenshots/curl-custom-dns-api-key.png) |
+| 16 | Live on the custom HTTPS domain | [View](screenshots/curl-custom-dns-api.png) |
 
 ## Build Walkthrough
 
@@ -320,7 +320,7 @@ curl -X POST https://api.aws.biram.uk/submit \
 # {"message": "Student stored successfully", "id": "..."}
 ```
 
-![Live on the custom HTTPS domain](screenshots/curl-custom-dns-api-key.png)
+![Live on the custom HTTPS domain](screenshots/curl-custom-dns-api.png)
 
 ## Commands Used
 
