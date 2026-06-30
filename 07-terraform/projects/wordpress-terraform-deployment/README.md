@@ -280,7 +280,7 @@ terraform apply     # build it
 
 After `apply`, both URLs print in the outputs:
 
-![terraform apply complete with output URLs](screenshots/terminal_outputs.png)
+![terraform apply complete with output URLs](screenshots/terminal%20outputs.png)
 
 And the site is live on **both** the public IP and the custom domain:
 
