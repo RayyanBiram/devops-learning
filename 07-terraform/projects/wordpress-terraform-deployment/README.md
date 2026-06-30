@@ -23,11 +23,8 @@ A single-instance WordPress deployment in the **eu-west-2** region, defined enti
 - **Amazon S3** - remote backend storing `terraform.tfstate`, keeping state off the local machine
 - **LAMP stack** - Linux + Apache + MySQL + PHP, the runtime WordPress needs
 
-**Architecture:**
 
-![Architecture diagram](screenshots/architecture-diagram.png)
-
-How it actually works:
+**How it actually works:**
 - **Terraform applies the config.** Reading `provider.tf`, `variables.tf`, `main.tf`, and `outputs.tf`, Terraform creates the EC2 instance, the security group, and the DNS record in a single pass, tracking everything in remote S3 state.
 - **The instance boots and self-installs.** On first boot the user data script runs as root: it updates packages, installs Apache, MySQL, and PHP, downloads WordPress, wires up the database, and writes `wp-config.php` - no SSH, no manual setup.
 - **The site URL is locked in at provision time.** Before Apache restarts, the script injects `WP_HOME` and `WP_SITEURL` into `wp-config.php`, so WordPress answers on the domain name from the very first request instead of pinning itself to the raw IP.
