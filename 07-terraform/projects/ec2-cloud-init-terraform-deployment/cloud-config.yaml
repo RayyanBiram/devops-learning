@@ -1,0 +1,16 @@
+#cloud-config
+write_files:
+  - path: /run/myserver/index.html
+    owner: root:root
+    permissions: "0644"
+    content: |
+      <html>
+        <body>
+          <h1>NGINX deployed onto an EC2 instance via Terraform + cloud-init</h1>
+        </body>
+      </html>
+
+runcmd:
+  - dnf install -y nginx
+  - mv /run/myserver/index.html /usr/share/nginx/html/index.html
+  - systemctl enable --now nginx
