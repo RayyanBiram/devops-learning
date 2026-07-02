@@ -62,9 +62,7 @@ Amazon Web Services (AWS) is the world's most widely used cloud platform, on-dem
 ## Folder Structure
 
 ```
-06-aws/
-├── notes/       
-├── labs/        
+06-aws/       
 └── projects/
     ├── .github/workflows                        # GitHub Actions deploy.yml file
     ├── assignment-1-vpc-networking/             # Custom VPC (subnets, IGW, NAT, security groups)
