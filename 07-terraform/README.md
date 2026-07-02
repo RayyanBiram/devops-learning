@@ -43,6 +43,8 @@ Terraform is HashiCorp's Infrastructure as Code tool. Instead of clicking throug
 
 ```
 07-terraform/
+└── labs/
+└── notes/
 └── projects/
     ├── wordpress-terraform-deployment/        # WordPress on AWS (EC2 + security group + Route 53)
     └── ec2-cloud-init-terraform-deployment/    # NGINX via cloud-init (user_data_base64)
