@@ -44,7 +44,7 @@ jobs:
         with: 
           context: "{{defaultContext}}:app"
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/flask-redis-nginx:latest
 
   ssh-and-pull:
     needs: build-and-publish
