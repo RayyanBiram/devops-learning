@@ -1,0 +1,81 @@
+name: automated build, push & deploy
+
+on: [ push, pull_request ]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+        id-token: write
+        contents: write
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: setup linter
+        run: |
+          pip install flake8
+          cd app/
+          flake8 app.py
+
+      - name: setup tester
+        run: |
+          pip install pytest flask redis 
+          cd ..
+          pytest 
+
+      - name: login to dockerhub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: setup docker buildx
+        uses: docker/setup-buildx-action@v4
+        
+      - name: build and push
+        uses: docker/build-push-action@v7
+        if: github.event_name == 'push'
+        with: 
+          context: "{{defaultContext}}:app"
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/app:latest
+
+  ssh-and-pull:
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    permissions:
+        id-token: write
+        contents: write
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+        
+      - name: scp of dockercompose
+        uses: appleboy/scp-action@v1
+        if: github.event_name == 'push'
+        with:
+          host: frn.aws.biram.uk
+          username: ubuntu
+          key: ${{ secrets.EC2_SSHKEY }}
+          port: 22
+          source: "./app/docker-compose-prod.yaml,./app/nginx.conf"
+          target: /home/ubuntu
+
+      - name: ssh and pull from dockerhub
+        uses: appleboy/ssh-action@v1
+        if: github.event_name == 'push'
+        with: 
+          host: frn.aws.biram.uk
+          username: ubuntu
+          key: ${{ secrets.EC2_SSHKEY }}
+          port: 22
+          script: |
+            cd app
+            docker compose -f docker-compose-prod.yaml pull && docker compose -f docker-compose-prod.yaml up -d

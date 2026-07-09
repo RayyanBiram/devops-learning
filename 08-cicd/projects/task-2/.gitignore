@@ -1,0 +1,16 @@
+.env
+.DS_Store
+
+# Local .terraform directories
+**/.terraform/*
+
+# EXclude .tfstate files - contain sensitive data
+*.tfstate
+*.tfstate.*
+
+# Exclude .tfvars files - contain sensitive data
+*.tfvars
+
+
+crash.log
+crash.*.log
