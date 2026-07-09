@@ -59,7 +59,7 @@ Amazon Web Services (AWS) is the world's most widely used cloud platform, on-dem
 | ACM | TLS/SSL certificates for HTTPS |
 | WAF | Web application firewall |
 
-## Folder Structure
+## Folder Structure 
 
 ```
 06-aws/       
