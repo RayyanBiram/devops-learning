@@ -52,7 +52,20 @@ A CI pipeline defined entirely in a single workflow file, triggered on both `pus
 | 6 | Run history - PR run, push run, and merge run | [View](screenshots/testing-pull-request.png) |
 | 7 | First failed run - flake8 flags PEP8 violations | [View](screenshots/failed-push-linter.png) |
 | 8 | Second failed run - one `W292` left before green | [View](screenshots/failed-push-linter-2.png) |
- 
+
+## Repo Structure
+
+```
+flask-ci-pipeline/
+├── .github/
+│   └── workflows/
+│       └── ci.yaml          # CI workflow: checkout, lint, test, build, conditional push
+├── app.py                   # the application under test
+├── test_app.py              # the unit test, run by pytest
+├── Dockerfile               # packages the app into a slim Python image
+└── screenshots/             # workflow-run and Docker Hub screenshots
+ ```
+
 ## Build Walkthrough
  
 The pipeline file by file: the app being tested, the test, the Dockerfile that packages it, and the workflow that ties them together.
