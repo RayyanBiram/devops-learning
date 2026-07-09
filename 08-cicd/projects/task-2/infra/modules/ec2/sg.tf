@@ -10,7 +10,7 @@ resource "aws_security_group" "sg_frn-app" {
       from_port   = 80
       to_port     = 80
       protocol    = "tcp"
-      cidr_blocks = [var.my_ip]
+      cidr_blocks = ["0.0.0.0/0"]
     }
 
     ingress {
@@ -18,14 +18,14 @@ resource "aws_security_group" "sg_frn-app" {
         from_port   = 22
         to_port     = 22
         protocol    = "tcp"
-        cidr_blocks = [var.my_ip] 
+        cidr_blocks = ["0.0.0.0/0"] 
     }
 
     egress {
         from_port   = 0
         to_port     = 0
         protocol    = "-1"
-        cidr_blocks = [var.my_ip]
+        cidr_blocks = ["0.0.0.0/0"]
     }
 
     tags = {

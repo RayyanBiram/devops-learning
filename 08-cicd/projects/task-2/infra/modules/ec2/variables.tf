@@ -9,7 +9,3 @@ variable "instance_type" {
 variable "key_pair" {
   description = "Key pair for SSH access to the EC2 instance"
 }
-
-variable "my_ip" {
-  description = "My public IP"
-}
