@@ -344,17 +344,6 @@ The Route 53 A record maps the subdomain to the instance IP:
 
 ![Route 53 A record for frn.aws.biram.uk](screenshots/aws-route53-record.png)
 
-## What I Learnt
-
-- **`needs` is what turns CI into CD** - the deploy job only runs after build-and-publish succeeds, so a failed lint or test never reaches the server.
-- **Dev and prod compose files serve different jobs** - `build:` for local development, `image:` for deployment, so the instance pulls the CI-built image instead of rebuilding from source it never has.
-- **Test dependencies aren't just the test runner** - the test imports the app, so `flask` and `redis` have to be installed alongside `pytest` or the import fails before any test runs.
-- **`context` follows the folder structure** - after splitting the repo into `app/` and `infra/`, the Docker build context had to point at `app/`, or it couldn't find the Dockerfile.
-- **`path.module` matters in modules** - `file()` resolves relative to the run directory, not the module, so a module reading its own script needs `${path.module}`.
-- **SCP preserves the source path** - `source: ./app/...` lands the file under `/home/ubuntu/app/`, so the SSH script has to `cd app` for both the compose file and NGINX's relative mount to resolve.
-- **Deploy to the DNS name, not the IP** - SSHing to `frn.aws.biram.uk` means a replaced instance just needs Terraform to update the record; the GitHub secret never changes.
-- **Open SSH is a deliberate trade-off** - GitHub runner IPs change, so port 22 is open to deploy; in production that path would be locked down (SSM or runner IP ranges).
-
 ## Challenges & How I Solved Them
 
 ### 1. Deploying on pull requests, and before CI passed
@@ -368,24 +357,24 @@ After reorganising the repo into `app/` and `infra/`, the build step failed with
 **Solution:** set `context: "{{defaultContext}}:app"` so the build uses the `app/` subfolder as its context. The Dockerfile and its `COPY . .` then resolved correctly, and `flake8`/`pytest` paths were updated for the new layout too.
 
 ### 3. pytest failed with `ModuleNotFoundError: No module named 'flask'`
-The test file imports the app, which imports `flask` and `redis`. The tester step only installed `pytest`, so the import blew up before any test ran. A second, unrelated test file left over from Task 1 was also being auto-discovered.
+The test file imports the app, which imports `flask` and `redis`. The tester step only installed `pytest`, so the import blew up before any test ran. A second, unrelated test file left over from `flask-ci-pipeline` was also being auto-discovered.
 
-**Solution:** installed `flask` and `redis` alongside `pytest` in the tester step so the app imports cleanly, and scoped test discovery to the current project so the stale Task 1 file wasn't collected. The suite then ran green - `3 passed`.
+**Solution:** installed `flask` and `redis` alongside `pytest` in the tester step so the app imports cleanly, and scoped test discovery to the current project so the stale `flask-ci-pipeline` file wasn't collected. The suite then ran green, `3 passed`.
 
 ### 4. `file("userdata.sh")` failed after modularising
-Moving the EC2 config into `infra/modules/ec2/` broke the user data line with `no file exists at "userdata.sh"`. Filesystem functions resolve relative to where Terraform runs (`infra/`), not the module folder - so it was looking in the wrong place.
+Moving the EC2 config into `infra/modules/ec2/` broke the user data line with `no file exists at "userdata.sh"`. Filesystem functions resolve relative to where Terraform runs (`infra/`), not the module folder, so it was looking in the wrong place.
 
 **Solution:** changed it to `file("${path.module}/userdata.sh")`. `path.module` always points at the module's own directory, so the script resolved regardless of where the command was run from.
 
 ### 5. The deploy SSH step couldn't find the compose file
-The SSH script ran `docker compose -f docker-compose-prod.yaml` but failed with `no such file or directory`, then - once the file was found - NGINX failed to mount `nginx.conf`. SCP had landed the files under `/home/ubuntu/app/` (it preserves the source path), while the script was running from `/home/ubuntu`.
+The SSH script ran `docker compose -f docker-compose-prod.yaml` but failed with `no such file or directory`, then, once the file was found, NGINX failed to mount `nginx.conf`. SCP had landed the files under `/home/ubuntu/app/`, while the script was running from `/home/ubuntu`.
 
 **Solution:** added `cd app` as the first line of the SSH script, and copied `nginx.conf` up alongside the compose file. Running from `/home/ubuntu/app` made both the `-f` path and NGINX's relative `./nginx.conf` mount resolve, and the stack came up.
 
 ### 6. The site needed a port number in the URL
 With NGINX first mapped to host port 5000, the site only loaded at `frn.aws.biram.uk:5000`. To serve on a clean URL, NGINX's host port and the security group both had to move to 80.
 
-**Solution:** changed the compose mapping to `"80:80"` and the security group ingress to port 80, then re-applied Terraform and re-deployed. The site then served on `frn.aws.biram.uk` with no port number. (Flask stays on 5000 internally - only NGINX's public host port changed.)
+**Solution:** changed the compose mapping to `"80:80"` and the security group ingress to port 80, then re-applied Terraform and re-deployed. The site then served on `frn.aws.biram.uk` with no port number. (Flask stays on 5000 internally. Only NGINX's public host port changed.)
 
 ## Cleanup
 
